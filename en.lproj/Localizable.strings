@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ELCImagePickerDemo
+
+  Created by zhanglongyang on 9/18/13.
+  Copyright (c) 2013 ELC Technologies. All rights reserved.
+*/
+"ELC_LOADING" = "Loading...";
+"ELC_SELECT_ALBUM" = "Select an Album";
+"ELC_PICK_PHOTO" = "Pick Photo";
+"ELC_PICK_PHOTOS" = "Pick Photos";

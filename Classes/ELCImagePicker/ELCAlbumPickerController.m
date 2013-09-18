@@ -20,6 +20,8 @@
 @synthesize parent = _parent;
 @synthesize assetGroups = _assetGroups;
 @synthesize library = _library;
+@synthesize singleSelection = _singleSelection;
+@synthesize immediateReturn = _immediateReturn;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -28,7 +30,7 @@
 {
     [super viewDidLoad];
 	
-	[self.navigationItem setTitle:@"Loading..."];
+	[self.navigationItem setTitle:NSLocalizedString(@"ELC_LOADING", Nil)];
 
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self.parent action:@selector(cancelImagePicker)];
 	[self.navigationItem setRightBarButtonItem:cancelButton];
@@ -91,7 +93,7 @@
 - (void)reloadTableView
 {
 	[self.tableView reloadData];
-	[self.navigationItem setTitle:@"Select an Album"];
+	[self.navigationItem setTitle:NSLocalizedString(@"ELC_SELECT_ALBUM", nil)];
 }
 
 - (void)selectedAssets:(NSArray*)assets
@@ -143,6 +145,9 @@
 	
 	ELCAssetTablePicker *picker = [[ELCAssetTablePicker alloc] initWithNibName: nil bundle: nil];
 	picker.parent = self;
+    
+    picker.singleSelection = self.singleSelection;
+    picker.immediateReturn = self.immediateReturn;
 
     picker.assetGroup = [self.assetGroups objectAtIndex:indexPath.row];
     [picker.assetGroup setAssetsFilter:[ALAssetsFilter allPhotos]];

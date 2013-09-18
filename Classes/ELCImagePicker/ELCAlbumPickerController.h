@@ -11,6 +11,8 @@
 
 @interface ELCAlbumPickerController : UITableViewController <ELCAssetSelectionDelegate>
 
+@property (nonatomic, assign) BOOL singleSelection;
+@property (nonatomic, assign) BOOL immediateReturn;
 @property (nonatomic, assign) id<ELCAssetSelectionDelegate> parent;
 @property (nonatomic, retain) NSMutableArray *assetGroups;
 

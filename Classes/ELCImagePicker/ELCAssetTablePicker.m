@@ -67,7 +67,6 @@
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-    NSLog(@"enumerating photos");
     [self.assetGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         
         if(result == nil) {
@@ -79,7 +78,6 @@
         [self.elcAssets addObject:elcAsset];
         [elcAsset release];
      }];
-    NSLog(@"done enumerating photos");
     
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -94,7 +92,7 @@
                                           animated:NO];
         }
         
-        [self.navigationItem setTitle:self.singleSelection ? @"Pick Photo" : @"Pick Photos"];
+        [self.navigationItem setTitle:self.singleSelection ? NSLocalizedString(@"ELC_PICK_PHOTO", nil) : NSLocalizedString(@"ELC_PICK_PHOTOS", nil)];
     });
     
     [pool release];
