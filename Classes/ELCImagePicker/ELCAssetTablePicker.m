@@ -92,7 +92,10 @@
                                           animated:NO];
         }
         
-        [self.navigationItem setTitle:self.singleSelection ? NSLocalizedString(@"ELC_PICK_PHOTO", nil) : NSLocalizedString(@"ELC_PICK_PHOTOS", nil)];
+        NSBundle *bundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ELCImagePickerResources.bundle"]];
+        
+        [self.navigationItem setTitle:self.singleSelection ? NSLocalizedStringFromTableInBundle(@"ELC_PICK_PHOTO", nil, bundle, Nil) : NSLocalizedStringFromTableInBundle(@"ELC_PICK_PHOTOS", nil, bundle, Nil)];
+        
     });
     
     [pool release];

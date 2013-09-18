@@ -29,8 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSBundle *bundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ELCImagePickerResources.bundle"]];
 	
-	[self.navigationItem setTitle:NSLocalizedString(@"ELC_LOADING", Nil)];
+	[self.navigationItem setTitle:NSLocalizedStringFromTableInBundle(@"ELC_LOADING", nil, bundle, Nil)];
 
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self.parent action:@selector(cancelImagePicker)];
 	[self.navigationItem setRightBarButtonItem:cancelButton];
@@ -93,7 +95,10 @@
 - (void)reloadTableView
 {
 	[self.tableView reloadData];
-	[self.navigationItem setTitle:NSLocalizedString(@"ELC_SELECT_ALBUM", nil)];
+	
+    NSBundle *bundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ELCImagePickerResources.bundle"]];
+    
+    [self.navigationItem setTitle:NSLocalizedStringFromTableInBundle(@"ELC_SELECT_ALBUM", nil, bundle, Nil)];
 }
 
 - (void)selectedAssets:(NSArray*)assets
